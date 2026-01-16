@@ -70,6 +70,9 @@ export default function ProductTable({ products, onEdit, onDelete }: ProductTabl
                             Nombre
                         </th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Categoría
+                        </th>
+                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Descripción
                         </th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -94,6 +97,15 @@ export default function ProductTable({ products, onEdit, onDelete }: ProductTabl
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                 {product.name}
+                            </td>
+                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                                {product.category ? (
+                                    <span className="px-2 py-1 text-xs font-medium rounded-md bg-blue-100 text-blue-800">
+                                        {product.category.name}
+                                    </span>
+                                ) : (
+                                    <span className="text-gray-400 italic">Sin categoría</span>
+                                )}
                             </td>
                             <td className="px-6 py-4 text-sm text-gray-500 max-w-xs truncate">
                                 {product.description || '-'}

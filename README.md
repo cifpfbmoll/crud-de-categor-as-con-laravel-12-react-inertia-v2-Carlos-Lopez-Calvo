@@ -25,6 +25,19 @@ Aplicación CRUD (Create, Read, Update, Delete) completa desarrollada con el sta
 
 ## 🚀 Instalación Rápida
 
+### 🐳 Opción 1: Con Docker (Recomendado)
+
+```bash
+# Ejecutar script de configuración automática
+./docker-setup.sh
+```
+
+**¡Listo!** Visita `http://localhost:8000` 🎉
+
+👉 Ver [INICIO_RAPIDO.md](INICIO_RAPIDO.md) o [DOCKER_README.md](DOCKER_README.md) para más detalles
+
+### 💻 Opción 2: Instalación Local
+
 ```bash
 # Clonar el repositorio
 git clone https://github.com/maximofernandezriera/laracrud.git
@@ -81,6 +94,8 @@ laracrud/
 
 | Documento | Descripción |
 |-----------|-------------|
+| [🐳 Inicio Rápido Docker](INICIO_RAPIDO.md) | Guía rápida para levantar con Docker |
+| [🐋 Guía Completa Docker](DOCKER_README.md) | Documentación detallada de Docker |
 | [📖 Guía de Desarrollo](docs/GUIA_DESARROLLO.md) | Tutorial paso a paso para crear el proyecto |
 | [🎯 Presentación](docs/presentacion.html) | Slides con Reveal.js para presentaciones |
 
@@ -129,3 +144,7 @@ CIFP Francesc de Borja Moll
 ## 📄 Licencia
 
 Este proyecto está bajo la licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
+
+
+## Link video
+https://drive.google.com/file/d/1AZo8yTgWCHzbOk57BiZrZgdVhHgZjn4i/view?usp=sharing

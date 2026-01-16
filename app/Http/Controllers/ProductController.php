@@ -17,7 +17,8 @@ class ProductController extends Controller
     public function index(): Response
     {
         return Inertia::render('Products/Index', [
-            'products' => Product::orderBy('created_at', 'desc')->get(),
+            'products' => Product::with('category')->orderBy('created_at', 'desc')->get(),
+            'categories' => \App\Models\Category::where('is_active', true)->orderBy('name')->get(['id', 'name']),
         ]);
     }
 
@@ -28,6 +29,7 @@ class ProductController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
+            'category_id' => 'nullable|exists:categories,id',
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
@@ -36,6 +38,7 @@ class ProductController extends Controller
         ]);
 
         $product = Product::create($validated);
+        $product->load('category');
 
         return response()->json([
             'message' => '¡Producto creado exitosamente!',
@@ -50,6 +53,7 @@ class ProductController extends Controller
     public function update(Request $request, int $id): JsonResponse
     {
         $validated = $request->validate([
+            'category_id' => 'nullable|exists:categories,id',
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
@@ -59,6 +63,7 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
         $product->update($validated);
+        $product->load('category');
 
         return response()->json([
             'message' => '¡Producto actualizado exitosamente!',
